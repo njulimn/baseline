@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <thread>
 #include <chrono>
+#include <jemalloc/jemalloc.h>
 
 #include "lock_free_skip_set.h"
 #include "skipset.h"
@@ -117,12 +118,12 @@ void bench_add_random_by_multi_skipset(const int ss_num, const int bound) {
 void bench_add() {
   // bench_add_random_single_thread(8<<20);  // 8 million
 
-  bench_add_random_multi_threads(1, 16<<20);
-  bench_add_random_multi_threads(2, 16<<20);
-  bench_add_random_multi_threads(4, 16<<20);
-  bench_add_random_multi_threads(8, 16<<20);
-  bench_add_random_multi_threads(16, 16<<20);
-  // bench_add_random_multi_threads(32, 16<<20);
+  bench_add_random_multi_threads(1, 8<<20);
+  bench_add_random_multi_threads(2, 8<<20);
+  bench_add_random_multi_threads(4, 8<<20);
+  bench_add_random_multi_threads(8, 8<<20);
+  bench_add_random_multi_threads(16, 8<<20);
+  bench_add_random_multi_threads(24, 8<<20);
 
   // bench_add_random_by_one_skipset(8<<20);
 
@@ -325,6 +326,5 @@ int main() {
   // bench_scan_cmp();
 
   // bench_range_scan_in_random_and_contiguous();
-
   return 0;
 }

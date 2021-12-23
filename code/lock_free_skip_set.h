@@ -5,10 +5,25 @@
 #include <iomanip>
 #include <algorithm>
 #include <climits>
+// #include <new>
 #include "atomic_flag_reference.h"
+// #include <jemalloc/jemalloc.h>
+// #include <gperftools/tcmalloc.h>
+
+// void * operator new(size_t size)
+// {
+//     // cout << "New operator overloading " << endl;
+//     void * p = je_malloc(size);
+//     return p;
+// }
+ 
+// void operator delete(void * p)
+// {
+//     // cout << "Delete operator overloading " << endl;
+//     je_free(p);
+// }
 
 namespace sss {
-
 template <class T>
 class LockFreeSkipSet {
 

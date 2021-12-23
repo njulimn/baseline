@@ -1,6 +1,8 @@
 CC = g++
-CFLAGS = -O2 -std=c++17 -lpthread
-
+# CFLAGS = -g -std=c++17 -lpthread -ljemalloc
+CFLAGS = -g -std=c++17 -lpthread
+# CFLAGS = -g -std=c++17 -lpthread -L`jemalloc-config --libdir` -Wl,-rpath,`jemalloc-config --libdir` -ljemalloc `jemalloc-config --libs`
+# LD_PRELOAD="/lib64/libjemalloc.so"
 run: test
 	./test
 
